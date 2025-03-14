@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Evidence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Evidence</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file_name">Evidence Name:</label>
+            <input type="text" name="file_name" required>
+
+            <label for="file_description">Description:</label>
+            <textarea name="file_description" required></textarea>
+
+            <label for="classification">Classification Label:</label>
+            <select name="classification" required>
+                <option value="Restricted">Restricted</option>
+                <option value="Confidential">Confidential</option>
+                <option value="Classified">Classified</option>
+                <option value="Public">Public</option>
+            </select>
+
+            <label for="file">Select Evidence File:</label>
+            <input type="file" name="file" required>
+
+            <button type="submit">Upload</button>
+        </form>
+        <p><a href="{{ url_for('evidence_list') }}">View Uploaded Evidence</a></p>
+    </div>
+</body>
+</html>

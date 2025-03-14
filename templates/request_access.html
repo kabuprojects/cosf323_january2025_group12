@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Access</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* White & Pink Theme */
+        body {
+            background-color: #ffe6f2; /* Light Pink */
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ff4d94; /* Dark Pink */
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ff4d94;
+        }
+
+        button {
+            background-color: #ff4d94;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #e60073; /* Darker Pink */
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            color: #ff4d94;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Request Access to a Document</h2>
+        <form action="{{ url_for('request_access') }}" method="POST">
+            <label for="document_id">Select Document:</label>
+            <select name="document_id" id="document_id" required>
+                {% for doc in documents %}
+                    <option value="{{ doc.id }}">
+                        {{ doc.name }} - {{ doc.classification }} (Uploaded by: {{ doc.uploaded_by }} - {{ doc.role }})
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label for="reason">Reason for Access:</label>
+            <textarea name="reason" id="reason" required placeholder="Explain why you need access..."></textarea>
+
+            <button type="submit">Submit Request</button>
+        </form>
+
+        <a class="back-link" href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

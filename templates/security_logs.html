@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Logs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: white; /* Clean white background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #e60073; /* Dark pink */
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Table Styling */
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #ffe6f2; /* Light pink */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #e60073; /* Dark pink */
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #ffd1e8; /* Soft pink for alternating rows */
+        }
+
+        /* Hover effect */
+        tr:hover {
+            background: #ffb3d9; /* Light pink */
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #e60073;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #cc0052;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔒 Security Logs</h1>
+    <p>View security-related logs and activities.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Log ID</th>
+                <th>Timestamp</th>
+                <th>User</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="logTableBody">
+            <tr>
+                <td>#1001</td>
+                <td>2025-03-10 12:45</td>
+                <td>Alice Johnson</td>
+                <td>Login Successful</td>
+            </tr>
+            <tr>
+                <td>#1002</td>
+                <td>2025-03-10 13:05</td>
+                <td>Michael Smith</td>
+                <td>Failed Login Attempt</td>
+            </tr>
+            <tr>
+                <td>#1003</td>
+                <td>2025-03-10 13:20</td>
+                <td>Emma Brown</td>
+                <td>Accessed Confidential File</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="admin_dashboard.html" class="back-btn">🔙 Back to Dashboard</a>
+
+</body>
+</html>

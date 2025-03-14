@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Evidence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .confidential {
+            background-color: #ffcccc;
+            color: red;
+            font-weight: bold;
+        }
+
+        .public {
+            background-color: #ccffcc;
+            color: green;
+            font-weight: bold;
+        }
+
+        .restricted {
+            background-color: #ffcc99;
+            color: darkorange;
+            font-weight: bold;
+        }
+
+        .classified {
+            background-color: #ccccff;
+            color: navy;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Uploaded Evidence</h2>
+        {% if evidence_files %}
+        <table>
+            <tr>
+                <th>File Name</th>
+                <th>Description</th>
+                <th>Classification</th>
+                <th>Uploaded By</th>
+                <th>Role</th>
+            </tr>
+            {% for evidence in evidence_files %}
+            <tr>
+                <td>{{ evidence.name }}</td>
+                <td>{{ evidence.description }}</td>
+                <td class="{% if evidence.classification == 'Confidential' %}confidential
+                           {% elif evidence.classification == 'Public' %}public
+                           {% elif evidence.classification == 'Restricted' %}restricted
+                           {% elif evidence.classification == 'Classified' %}classified
+                           {% endif %}">
+                    {{ evidence.classification }}
+                </td>
+                <td>{{ evidence.uploaded_by }}</td>
+                <td>{{ evidence.role }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No evidence has been uploaded yet.</p>
+        {% endif %}
+        <a href="{{ url_for('dashboard') }}" class="back-link">⬅ Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Login Container */
+.login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h2 {
+    color: #ff4b5c;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ff4b5c;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #ff4b5c;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d84356;
+}
+
+/* Flash Messages */
+.flash {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.flash.success { background: #28a745; color: white; }
+.flash.danger { background: #dc3545; color: white; }
+.flash.warning { background: #ffc107; color: black; }
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Apply the same pinkish-red theme */
+body.dashboard-body {
+    background: linear-gradient(to right, #ff4e50, #fc913a);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.profile, .dashboard-menu {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.dashboard-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-menu ul li {
+    margin: 10px 0;
+}
+
+.dashboard-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: inline-block;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe6e6;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+.dashboard-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #d40055;
+}
+
+.profile, .dashboard-menu, .evidence-list, .settings {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.dark-mode .profile, .dark-mode .dashboard-menu, .dark-mode .evidence-list, .dark-mode .settings {
+    background: #444;
+}
+
+button {
+    padding: 10px;
+    background: #d40055;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.update-profile-body {
+    background-color: #ff3366;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container h2 {
+    color: #ff3366;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    color: #333;
+    text-align: left;
+}
+
+input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ff3366;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #cc0044;
+}
+
+.back-link {
+    display: block;
+    margin-top: 10px;
+    color: #ff3366;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

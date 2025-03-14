@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Register</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('register') }}">
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+            
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" required>
+            
+            <label for="role">Select Role:</label>
+            <select name="role" required>
+                <option value="Admin">Admin</option>
+                <option value="Evidence Manager">Evidence Manager</option>
+                <option value="Investigator">Investigator</option>
+                <option value="Forensic Analyst">Forensic Analyst</option>
+                <option value="Prosecutor">Prosecutor</option>
+                <option value="System User">System User</option>
+            </select>
+            
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+    </div>
+</body>
+</html>

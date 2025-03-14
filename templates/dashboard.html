@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        :root {
+            --primary-color: #6200ea;
+            --secondary-color: #03dac6;
+            --background-light: #f5f5f5;
+            --background-dark: #121212;
+            --text-light: #ffffff;
+            --text-dark: #000000;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background: var(--background-light);
+            transition: background 0.3s ease;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: background 0.3s ease;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .welcome h1, .welcome p {
+            color: var(--text-dark);
+        }
+
+        .notifications, .help-support {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .notifications h2, .help-support h2 {
+            color: var(--primary-color);
+        }
+
+        #dark-mode-toggle {
+            background: #000;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .text-size-controls button {
+            background: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background: var(--background-dark);
+            color: var(--text-light);
+        }
+
+        .dark-mode .sidebar {
+            background: linear-gradient(135deg, #3700b3, #018786);
+        }
+
+        .dark-mode .welcome h1, .dark-mode .welcome p {
+            color: var(--text-light);
+        }
+
+        .dark-mode .notifications, .dark-mode .help-support {
+            background: #333;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Dashboard</h2>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('update_profile') }}">User Profile</a></li>
+                    <li><a href="{{ url_for('documents') }}">Documents</a></li>
+                    <li><a href="{{ url_for('upload_evidence') }}">Upload/Manage Evidence</a></li>
+                    <li><a href="{{ url_for('request_access') }}">Request Access</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+            <button id="dark-mode-toggle">Dark Mode</button>
+            <div class="text-size-controls">
+                <button id="decrease-text">A-</button>
+                <button id="increase-text">A+</button>
+            </div>
+        </aside>
+        
+        <main class="content">
+            <section class="welcome">
+                <h1>Welcome, <span id="user-name">John Doe</span></h1>
+                <p>Role: <span id="user-role">Investigator</span></p>
+            </section>
+            
+            <section class="notifications">
+                <h2>System Notifications & Security Alerts</h2>
+                <ul id="alerts">
+                    <li>New access request from User A</li>
+                    <li>Security alert: Unauthorized login attempt</li>
+                </ul>
+            </section>
+            
+            <section class="help-support">
+                <h2>Help & Contact Support</h2>
+                <p>If you need assistance, please contact our support team at <a href="mailto:support@example.com">support@example.com</a></p>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.getElementById("dark-mode-toggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+</html>
